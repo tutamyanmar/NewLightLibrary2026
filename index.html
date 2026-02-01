@@ -30,7 +30,7 @@
         </div>
     </header>
 
-    <!-- အဓိက သတင်းပြခန်း -->
+    <!-- အဓိက သတင်းများ -->
     <main class="container">
         <section class="featured-news">
             <h2><i class="fas fa-star"></i> ထိပ်တန်းသတင်း</h2>
@@ -81,7 +81,36 @@
             </aside>
         </div>
     </main>
+<!-- မူလစာမျက်နှာ၏ မည့်သည့်နေရာတွင်မဆို ထည့်သွင်းပါ -->
+<div class="news-section">
+    <h2>နောက်ဆုံးရသတင်းများ</h2>
+    <div id="latest-news"></div>
+    <a href="news/index.html" class="btn btn-primary">သတင်းအားလုံးကြည့်ရန်</a>
+</div>
 
+<script>
+// Load latest news on main page
+document.addEventListener('DOMContentLoaded', function() {
+    const newsData = JSON.parse(localStorage.getItem('libraryNews')) || [];
+    const latestNewsContainer = document.getElementById('latest-news');
+    
+    if (newsData.length > 0) {
+        const latestNews = newsData.slice(0, 3); // Show 3 latest
+        latestNewsContainer.innerHTML = '';
+        
+        latestNews.forEach(news => {
+            const newsItem = document.createElement('div');
+            newsItem.className = 'news-item';
+            newsItem.innerHTML = `
+                <h5>${news.title}</h5>
+                <p>${news.content.substring(0, 80)}...</p>
+                <small class="text-muted">${news.date}</small>
+            `;
+            latestNewsContainer.appendChild(newsItem);
+        });
+    }
+});
+</script>
     <footer>
         <div class="container">
             <p>© 2026 New Light News. ဤဆိုက်ရှိ သတင်းများကို ပညာရေးဆိုင်ရာ ရည်ရွယ်ချက်ဖြင့်သာ အသုံးပြုပါ။</p>
@@ -94,3 +123,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
