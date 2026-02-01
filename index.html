@@ -1,11 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="my">
 <head>
-    <title>New Light Library</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Light | သတင်းများ</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>New Light Library!</h1>
-    <p>Welcome to my website!</p>
+    <!-- ခေါင်းပိုင်း -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-broadcast-tower"></i> New Light News</h1>
+                <p>ယုံကြည်စိတ်ချရသော သတင်းအချက်အလက်၊ အချိန်နှင့်တစ်ပြေးညီ</p>
+            </div>
+            <nav>
+                <a href="#home"><i class="fas fa-home"></i> ပင်မ</a>
+                <a href="#news"><i class="fas fa-newspaper"></i> နောက်ဆုံးရသတင်းများ</a>
+                <div class="category-dropdown">
+                    <button class="dropbtn"><i class="fas fa-tags"></i> ကဏ္ဍများ <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content" id="categoryMenu">
+                        <!-- JavaScript မှ ကဏ္ဍများ အလိုအလျောက်ထည့်သွင်းမည် -->
+                    </div>
+                </div>
+                <a href="#archive"><i class="fas fa-archive"></i> သတင်းအဟောင်းများ</a>
+                <a href="add_news.html" class="add-news-btn"><i class="fas fa-plus"></i> သတင်းထည့်ရန်</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- အဓိက သတင်းပြခန်း -->
+    <main class="container">
+        <section class="featured-news">
+            <h2><i class="fas fa-star"></i> ထိပ်တန်းသတင်း</h2>
+            <div class="featured-container" id="featuredNews">
+                <!-- JavaScript မှ ပြသမည့်နေရာ -->
+            </div>
+        </section>
+
+        <div class="content-wrapper">
+            <!-- နောက်ဆုံးရသတင်းများ -->
+            <section class="latest-news">
+                <h2><i class="fas fa-clock"></i> နောက်ဆုံးရသတင်းများ</h2>
+                <div class="filter-controls">
+                    <select id="yearFilter">
+                        <option value="">နှစ်အားလုံး</option>
+                        <!-- JavaScript မှ နှစ်များ အလိုအလျောက်ထည့်သွင်းမည် -->
+                    </select>
+                    <select id="categoryFilter">
+                        <option value="">ကဏ္ဍအားလုံး</option>
+                        <!-- JavaScript မှ ကဏ္ဍများ အလိုအလျောက်ထည့်သွင်းမည် -->
+                    </select>
+                    <input type="text" id="searchBox" placeholder="သတင်းရှာဖွေရန်...">
+                </div>
+                <div class="news-grid" id="newsGrid">
+                    <!-- JavaScript မှ သတင်းများ အလိုအလျောက်ထည့်သွင်းမည် -->
+                </div>
+            </section>
+
+            <!-- ဘေးဘား - ကဏ္ဍနှင့် နှစ်အလိုက် လင့်များ -->
+            <aside class="sidebar">
+                <div class="widget">
+                    <h3><i class="fas fa-folder"></i> ကဏ္ဍများ</h3>
+                    <ul class="category-list" id="sidebarCategories">
+                        <!-- JavaScript မှ ကဏ္ဍများ အလိုအလျောက်ထည့်သွင်းမည် -->
+                    </ul>
+                </div>
+                <div class="widget">
+                    <h3><i class="fas fa-calendar-alt"></i> နှစ်အလိုက်</h3>
+                    <ul class="year-list" id="sidebarYears">
+                        <!-- JavaScript မှ နှစ်များ အလိုအလျောက်ထည့်သွင်းမည် -->
+                    </ul>
+                </div>
+                <div class="widget">
+                    <h3><i class="fas fa-info-circle"></i> ကျွန်ုပ်တို့အကြောင်း</h3>
+                    <p>New Light News သည် မြန်မာဘာသာဖြင့် သတင်းများ စုစည်းဖော်ပြရန် တည်ဆောက်ထားသော ဒီမိုဆိုက်တစ်ခုဖြစ်သည်။</p>
+                    <a href="add_news.html" class="btn"><i class="fas fa-plus"></i> သတင်းထည့်ရန်</a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 New Light News. ဤဆိုက်ရှိ သတင်းများကို ပညာရေးဆိုင်ရာ ရည်ရွယ်ချက်ဖြင့်သာ အသုံးပြုပါ။</p>
+            <p>ဆက်သွယ်ရန်: <a href="mailto:newlightnews@tutamail.com">newlightnews@tutamail.com</a></p>
+            <p>Powered by GitHub Pages.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript ဖိုင်များ -->
+    <script src="script.js"></script>
 </body>
 </html>
