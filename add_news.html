@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <title>သတင်းအသစ်ထည့်ရန်</title>
+    <style>
+        body { font-family: 'Myanmar Text', sans-serif; padding: 20px; max-width: 800px; margin: auto; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input, textarea, select { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background: #2c3e50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>📰 သတင်းအသစ်ထည့်သွင်းရန်</h1>
+    <form id="newsForm">
+        <div class="form-group">
+            <label for="title">သတင်းခေါင်းစဉ်</label>
+            <input type="text" id="title" required>
+        </div>
+        <div class="form-group">
+            <label for="category">ကဏ္ဍ</label>
+            <select id="category">
+                <option value="နိုင်ငံတကာ">နိုင်ငံတကာ</option>
+                <option value="နည်းပညာ">နည်းပညာ</option>
+                <option value="ကျန်းမာရေး">ကျန်းမာရေး</option>
+                <option value="အားကစား">အားကစား</option>
+                <option value="ဖျော်ဖြေရေး">ဖျော်ဖြေရေး</option>
+                <option value="စီးပွားရေး">စီးပွားရေး</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="date">ရက်စွဲ</label>
+            <input type="date" id="date" required>
+        </div>
+        <div class="form-group">
+            <label for="summary">သတင်းအကျဉ်း (တိုတောင်းဖော်ပြချက်)</label>
+            <textarea id="summary" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="content">သတင်းအပြည့်အစုံ</label>
+            <textarea id="content" rows="10" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">ဓာတ်ပုံလင့် (မဖြစ်မနေ မဟုတ်)</label>
+            <input type="text" id="image" placeholder="assets/images/example.jpg">
+        </div>
+        <button type="submit">သတင်းထည့်သွင်းမည်</button>
+    </form>
+    <div id="message" style="margin-top:20px;"></div>
+
+    <script>
+        document.getElementById('newsForm').onsubmit = function(e) {
+            e.preventDefault();
+            const newsData = {
+                id: Date.now(), // ထူးခြားတဲ့ ID တစ်ခု ဖန်တီးပေး
+                title: document.getElementById('title').value,
+                category: document.getElementById('category').value,
+                date: document.getElementById('date').value,
+                summary: document.getElementById('summary').value,
+                content: document.getElementById('content').value,
+                image: document.getElementById('image').value || "assets/images/default_news.jpg"
+            };
+
+            // ဒီနေရာမှာ newsData ကို သိမ်းဆည်းတဲ့ လုပ်ဆောင်ချက် ထည့်သွင်းရန်
+            // (GitHub Pages သည် backend မပါသောကြောင့်၊ ဤနေရာတွင် JSON data ကို မှတ်တမ်းတင်ပြီး ကိုယ်တိုင် news.json သို့ ကူးထည့်ပေးရန် လိုအပ်ပါမည်။)
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = `
+                <h3>သတင်းအချက်အလက် ပြင်ဆင်ပြီးပါပြီ။ ကျေးဇူးပြု၍ အောက်ပါ JSON ကုဒ်ကို data/news.json ဖိုင်ရှိ စာရင်း နောက်ဆုံးတွင် ထည့်သွင်းပေးပါ။</h3>
+                <pre style="background:#eee; padding:15px; overflow:auto;">${JSON.stringify(newsData, null, 2)},</pre>
+                <p>မှတ်ချက်: news.json ဖိုင်ရှိ နောက်ဆုံး news item ၏ နောက်တွင် comma (,) ထည့်ပြီး ဤအသစ်ကို ထည့်သွင်းနိုင်ပါသည်။</p>
+            `;
+            // ပုံစံကို ရှင်းလင်းခြင်း
+            document.getElementById('newsForm').reset();
+        };
+    </script>
+</body>
+</html>
